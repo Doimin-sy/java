@@ -1,0 +1,39 @@
+package com.itg;
+
+public class Text01 {
+	public static void main(String[] args) {  // main cntl + space
+	System.out.println("Hello java");
+	System.out.println(""); // sysout ctrl + space
+	// 자료형
+	// 정수 byte short int long
+	// 실수 float double
+	// 문자 char
+	// 불리언 true,false
+	/* 
+	 산술연산 + - * / %
+	 비교연산 > < >= <= == !=
+	 논리연산 && || !
+	 비트연산 & | ~ ^
+	 전증감 후증감 ++ -- 
+	 이항 a+=2 a=a+2
+	 삼항 true?"a":"b"
+	 if() {}
+	 for() {}
+	 while() {}
+	 do{}while()
+	 switch(){case : }
+	 */
+	char data = 'a';
+		switch(data) {
+	case 'a' : data++; //b
+	case 'b' : data++; //c
+	case 'c' : data++; //d
+	default : data--; //c
+	
+		}
+		System.out.println(data);
+		for (int i=0;i<10;i++) {
+			System.out.println(i);
+		}
+	}
+}
