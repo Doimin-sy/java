@@ -1,0 +1,43 @@
+package com.itg;
+
+public class Text04 {
+	public static void main(String[] args) {
+		A a = new A(); // 객체 생성 a란 A객체를
+		System.out.println(a);
+		A b = new A();
+		A c = new A();
+		a.a=3000;
+		b.a=2000;
+		c.a=1000;
+		System.out.println("a.a"+"="+a.a);
+		System.out.println("b.a"+"="+b.a);
+		System.out.println("c.a"+"="+c.a);
+		Human h1 = new Human();
+		Human h2 = new Human();
+		Human h3 = new Human();
+		Human h4 = new Human();
+		Human h5 = new Human();
+		h1.name="홍길동";h1.age=20;
+		h2.name="이순신";h2.age=25;
+		h3.name="유관순";h3.age=30;
+		h4.name="세종대왕";h4.age=35;
+		h5.name="김영선";h5.age=40;
+		h1.introMe();
+		h2.introMe();
+		h3.introMe();
+		h4.introMe();
+		h5.introMe();
+	}
+
+}
+class A {
+	int a =100;
+}
+class Human {
+	String name;
+	int age;
+	public void introMe() {
+		String name ="박아무게"; // this.name이 아니면 함수안의 name이 들어가버린다 그렇기 때문에 지역변수 name을 찾기위해 this.을사용
+		System.out.println("저는 이름이"+this.name+"이며 나이는"+this.age+"입니다.");
+	}
+}
