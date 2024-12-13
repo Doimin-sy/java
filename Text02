@@ -1,0 +1,44 @@
+package com.itg;
+
+import java.util.Arrays;
+
+public class Text02 {
+	public static void main(String[] args) {
+		int [] arr = {10,20,30,40,50};
+		System.out.println(arr); // 주소
+		int [] ar = arr;
+		System.out.println(ar);
+		ar[0] = 500;
+		System.out.println(ar[0]);
+		System.out.println(Arrays.toString(arr));
+		int [] myarr = new int[5]; //초기값 00000 들어있음 new 
+		System.out.println(Arrays.toString(myarr));
+		myarr[1] =10; 
+		myarr[3] =30; 
+		System.out.println(Arrays.toString(myarr));
+		int [] mmarr = new int[] {10,20,30,40,50}; //이런식으로도 변수 선언가능  
+		System.out.println(Arrays.toString(mmarr));
+		int [][] twoarr = new int[3][];  // [0,0,0] 가아니라 [null,null,null]인 이유는 주소가 들어가기때문에 
+		twoarr[0] = new int[] {10,20,30};
+		System.out.println(twoarr[0]); // 2차원 0번인덱스 주소가 들어감 
+		System.out.println(Arrays.toString(twoarr));
+		System.out.println(Arrays.toString(twoarr[0]));
+		twoarr [1] = new int[3]; 
+		twoarr[1][0]=40;twoarr[1][1]=50;twoarr[1][2]=60;
+		System.out.println(Arrays.toString(twoarr[1]));
+		twoarr [2] = new int[2];
+		System.out.println(Arrays.toString(twoarr[2]));// 범위가 정해졌기때문에 0 , 0 이 기본값으로 들어감
+		twoarr [2][0] = 100;twoarr [2][1] = 500;
+		System.out.println(twoarr); 
+		System.out.println(Arrays.toString(twoarr)); // 주소가 출력
+		System.out.println(Arrays.toString(twoarr[2]));
+		int f=0; // 지역변수 고대로 int f;로사용하면 오류 초기값을 줘야 사용가능함
+		System.out.println(f);
+		for(int i=0;i<twoarr.length;i++) { 
+			for(int j=0;j<twoarr[i].length;j++) {
+				System.out.print(twoarr[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
