@@ -1,0 +1,46 @@
+package com.itg;
+//sigton 
+public class Text07 {
+	public static void main(String[] args) {
+		Mysin s = new Mysin();
+		Target t1 = s.getTarget();
+		Target t2 = s.getTarget();
+		Target t3 = s.getTarget();
+		t1.a+=10;
+		t2.a+=20;
+		t3.a-=5;
+		System.out.println(t1.a);
+		System.out.println(t2.a);
+		System.out.println(t3.a);
+		MySingle my1 = new MySingle();
+		MySingle my2 = new MySingle();
+		MySingle my3 = new MySingle();
+		Target g1 = my1.getTarget(); // my1!=my2 (주소가다름)
+		Target g2 = my2.getTarget();
+		Target g3 = my3.getTarget();
+		g1.a+=10;g2.a+=20;g3.a+=30;
+		System.out.println(g1.a);
+		System.out.println(g2.a);
+		System.out.println(g3.a);
+	}
+
+}
+class Mysin{
+	Target t;
+	public Target getTarget() {
+		if(t==null) { // 첫 t1에서 new Target()의 주소를받음
+			t = new Target();
+		}
+		return t;// 계속 t1의 주소를 받음
+	}// 그렇기때문에 t1,t2,t3 객체의 주소가 같음
+}
+class MySingle{
+	static Target t = new Target(); // static이기때문에 첫 한번만 실행되고 클래스가 호출될때마다 실행되지 않기때문에 주소가 같은것.
+	public Target getTarget() {
+		return t;// 계속 t의 주소를 받음
+	}
+}
+class Target{
+	int a; // 객체변수 static변수 배열은 초기화값
+}
+
