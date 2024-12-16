@@ -1,0 +1,39 @@
+package com.itg;
+
+public class Text09 {
+	public static void main(String[] args) {
+		new MM();
+		System.out.println("---------------------");
+		new MM("김영선");
+		System.out.println("---------------------");
+		new MM(123);
+		System.out.println("---------------------");
+		new MM(36,"백범");
+		System.out.println("---------------------");
+		new MD();
+	}
+	
+}
+class MM {
+	MM(){
+		System.out.println("기본생성자- 생성자가 전혀"+"없다면 컴파일러가 자동생성");
+	}
+	MM(int a){
+		System.out.println("int 파라미터 생성자");
+	}
+	MM(String b){
+		this(); // 기본생성자 호출
+		System.out.println("String 파라미터 생성자");
+	}
+	MM(int a,String b){
+		this(1);// int 파라미터 생성자 호출
+		System.out.println("String 과 int 파라미터 생성자");
+	}
+	
+}
+class MD extends MM {
+	MD() {
+		super("");// 상속만 받았지 사용을 할려면 호출을 해주는 부분
+		System.out.println("자식객체의 기본생성자");
+	}
+}
