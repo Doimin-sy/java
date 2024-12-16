@@ -1,0 +1,49 @@
+package com.itg;
+//sigle ton 기존객체의 주소를 다 주는것
+public class Text06 {
+	public static void main(String[] args) {
+		AA a = new AA("김영선");
+		AA b = new AA("백범");
+		AA c = new AA("조세희",19);
+		AA d = new AA("문철승",33);
+		AA f = new AA("황연수");
+		System.out.println(a.age+b.age+c.age+d.age+f.age);
+		System.out.println(AA.cnt); //정적영역 클래스에있는 cnt 바로 접근
+		System.out.println(a.cnt); //정적영역에있는 cnt값을 공유하는 객체에서 접근
+		System.out.println(a.getData(0));
+		System.out.println(b.getData(" "));
+		System.out.println(c.getData("asdasd",123123));
+		}
+
+}
+class AA {
+	//public AA() {}; 기본생성자 컴파일러가 만들어줌
+	public AA(String name) { //지역변수(파라미터)
+		this.name=name;
+		cnt++;
+		
+	}
+	public AA(String name,int age) {
+		this.name =name;
+		this.age = age;
+		cnt--;
+	}
+	public AA(int age) {
+		this.age=age;
+	}
+	private String name; //객체변수
+	int age = 20;
+	static int cnt=0; //정적영역 오버로딩(객체의 파라미터의 갯수나타입이 다르면)
+	public String getData(String name) {
+		System.out.println("이름 얻기");
+		return this.name;
+	}
+	public int getData(int age) {
+		System.out.println("나이 얻기");
+		return this.age;
+	}
+	public String getData(String name,int age) {
+		System.out.println("이름과 나이 얻기");
+		return this.name+":"+this.age;
+	}
+}
