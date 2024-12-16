@@ -1,0 +1,23 @@
+package com.itg;
+
+public class Text05 {
+	public static void main(String[] args) {
+		//문자배열
+		String str = "김영선";
+		String ssr = "김영선";
+		String stt = new String("김영선");
+		System.out.println(str);
+		System.out.println(str==ssr);
+		System.out.println("--------------------");
+		System.out.println(str==stt);// new는 새주소의 홍길동을 받기 때문에 주소값이 다름 False
+		System.out.println(11==11);
+		int [] a= {10};
+		int [] b= {10};
+		System.out.println(a==b); //배열은 주소로 같냐 다르냐를따짐
+		System.out.println("--------------------");
+		System.out.println(str.equals(stt)); //문자내용을 맞는지 볼때는 .equals 사용
+		
+		
+	}
+
+}
