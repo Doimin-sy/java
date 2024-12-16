@@ -1,0 +1,36 @@
+package com.itg;
+//오버라이드 파라미터 갯수 타입 다 같아야한다 , 부모의 객체를 다시정의해서 자식객체가 사용하는것
+public class Text08 {
+	public static void main(String[] args) {
+		Object car = new Car();
+		Car car1 = new Car();
+		//KiaCar car2 = new Car(); 오류 KiaCar 타입을 만드는데 어떤객체를 만드냐 Car란 객체를 타입이 맞지않음
+		Object kcar = new KiaCar();
+		Car kcar1 = new KiaCar();
+		KiaCar kcar2 = new KiaCar();
+		Object kcar3 = kcar2; // 부모객체로 들어가기때문에 캐스팅생략
+		KiaCar kcar4 =(KiaCar)kcar3; // 기아카 안에 부모객체를 넣기 때문에 캐스팅을 해서 맞춰줌
+		System.out.println("-------------------------");
+		KiaCar kk = new KiaCar();
+		kk.makeDuck();
+		Car ks = kk;
+		ks.makeDuck();
+		KiaCar km =(KiaCar)ks;
+		km.makeDuck(1);
+	}
+	
+}
+class Car{ // object car 존재
+	public void makeDuck() {
+		System.out.println("아빠가 오리인형을 만들어 주웠습니다");
+	}
+}
+class KiaCar extends Car{ // extends 상속 , object car kiacar 존재
+	public void makeDuck() {
+		super.makeDuck();
+		System.out.println("내가 오리를 만들었습니다");
+	}
+	public void makeDuck(int a) {
+		System.out.println("이건 오버로딩된 메소드");
+	}
+}
