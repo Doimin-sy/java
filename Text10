@@ -1,0 +1,22 @@
+package com.itg;
+
+public class Text10 {
+	public static void main(String[] args) {
+		T1 t = new T2();
+		System.out.println(t.a); //T1 타입이기 때문에 10출력
+		T2 tt = (T2)t;
+		System.out.println(tt.a);//T2 타입이기 때문에 20출력
+		System.out.println(tt.getA()); // 타입은 T2지만 메소드 호출이 T1이기때문에 10 부모클래스변수가 호출
+	}
+
+}
+class T1{
+	int a = 10;
+	public int getA() {
+		return a;
+	}
+}
+class T2 extends T1{ //변수는 상속되지않음
+	int a = 20;
+	
+}
