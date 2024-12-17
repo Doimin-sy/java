@@ -1,0 +1,38 @@
+package com.itg;
+
+public class Text14 {
+	/*예외처리 Exception(오류) - ArrayIndexOutOfBoundsException,IOException,ArithmeticException....
+	  try {} catch {Exception e} {} finally {}
+	*/
+	public static void main(String[] args) {
+		try {
+		int a = 3/0;
+		int [] arr = {1,2,3};
+		int b = arr[3];
+		System.out.println("예외발생시 코드멈춤");
+		}catch(Exception e) {
+			System.out.println("예외발생,예외처리합니다");
+		}finally {
+			System.out.println("예외와 상관없이 무조건 실행되는 코드");
+		}
+		System.out.println("예외발생시 코드멈춤");
+		Calc c = new Calc();
+		int sum = 0;
+		try {
+		c.illEx();
+		}catch(ArrayIndexOutOfBoundsException e) {
+			sum+=20;
+		}catch(Exception e) {
+			sum+=5;
+		}finally {
+			sum+=10;
+		}
+		System.out.println(sum);
+	}
+
+}
+class Calc{
+	public void illEx() throws Exception { //throw(던지다) 강제 발생시키는 코드
+		throw new ArrayIndexOutOfBoundsException(); //예외를 주는부분
+	}
+}
