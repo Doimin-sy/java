@@ -1,0 +1,59 @@
+package com.itg;
+
+public class Text12 {
+	public static void main(String[] args) {
+		SmartFarm sf = new SmartFarm();
+		CarAI car = new CarAI();
+		sf.connect();
+		sf.view();
+		sf.closeView();
+		sf.disconnect();
+		System.out.println("--------------------------");
+		car.connect();
+		car.view();
+		car.closeView();
+		car.disconnect();
+		System.out.println("--------------------------");
+		new Task().action(car); //!!!!! 너무 어려움
+	}
+
+}
+class Task{
+	public void action(UseNetwork u) {  // usenetwork를 구현한 u란 객체를 받는것
+		System.out.println("Task에서 호출xxxxxxxxxxxxxx");
+		u.connect();
+		u.view();
+		u.closeView();
+		u.disconnect();
+	}
+}
+abstract class UseNetwork{
+	public void connect() {
+		System.out.println("인터넷 연결");
+	}
+	public void disconnect() {
+		System.out.println("인터넷 끊기");
+	}
+	public abstract void view();
+	public abstract void closeView();
+}
+class CarAI extends UseNetwork {
+	public void connect() {
+		super.connect();
+		System.out.println("이동연결 5초간 대기후 작동");
+	}
+	public void view() {
+		System.out.println("자동차 유리창에 웹브라우저 뛰움");
+	}
+	public void closeView() {
+		System.out.println("자동차 유리창에 웹브라우저 종료");
+	}
+}
+class SmartFarm extends UseNetwork {
+	public void view() {
+		System.out.println("인터넷을 이용하여 센서값을 저장합니다.");
+	}
+	public void closeView() {
+		System.out.println("센서는인터넷 이용르 종료합니다.");
+	}
+}
