@@ -1,0 +1,56 @@
+package com.itg;
+
+public class Text13 {
+	public static void main(String[] args) {
+		//interface 극 추상화 , 객체를 생성하지않음 , 타입만 존재
+		getSmart(new SmartPhone());
+		Tv t = new SmartPhone(); // 인터페이스 타입을 전부 받을수있음
+		Phone p = new SmartPhone();
+	}
+	public static void getSmart(TestPhone p) { //개발환경에서 인터페이스만 보고 개발먼저함
+		p.connectNetwork();
+		p.bootComputer();
+		p.callNumber(0);
+		p.ViewTv();
+	}
+}
+interface TestPhone extends ConNectwork,Computing,Phone,Tv {}//인터페이스는 다중상속이 가능함 , implements 구현할것만 들어감
+ class SmartPhone implements TestPhone {
+
+	public void ViewTv() {
+		System.out.println("Tv를 봅니다.");
+	}
+	public void callNumber(int Number) {
+		System.out.println(Number+"번으로 전화를 겁니다");
+	}
+	public void bootComputer() {
+		System.out.println("컴퓨터기능을 부팅합니다.");
+	}
+	public void calcComputer() {
+		System.out.println("컴퓨터 계산기능을 사용합니다.");
+	}
+	public void connectNetwork() {
+		System.out.println("인터넷을 연결합니다");
+	}
+	public void disConnectNetwork() {
+		System.out.println("인터넷 연결을 끊습니다.");
+	}
+}
+interface ConNectwork{ //모두 추상메소드만 들어가야함
+	public void connectNetwork();
+	public void disConnectNetwork();
+}
+interface Computing {
+	public void bootComputer();
+	public void calcComputer();
+	
+}
+interface Phone{
+	public void callNumber(int Number); // 상수
+}
+interface Tv{
+	//상수 모두 대문자
+	final static String MBROAD = "MBC";
+	final static String KBROAD = "KBS";
+	public void ViewTv();
+}
